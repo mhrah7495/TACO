@@ -91,14 +91,14 @@ def test_dataset(model, dataset, nr_images):
         else:
             r_fused = r
 
-        fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(16, 16))
+        fig, (ax1, ax3) = plt.subplots(1, 2, figsize=(16, 16))
 
         # Display predictions
         visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
                                     dataset.class_names, r['scores'], title="Predictions", ax=ax1)
 
-        visualize.display_instances(image, r_fused['rois'], r_fused['masks'], r_fused['class_ids'],
-                                     dataset.class_names, r_fused['scores'], title="Predictions fused", ax=ax2)
+        #visualize.display_instances(image, r_fused['rois'], r_fused['masks'], r_fused['class_ids'],
+                                     #dataset.class_names, r_fused['scores'], title="Predictions fused", ax=ax2)
 
         # # Display ground truth
         visualize.display_instances(image, gt_bbox, gt_mask, gt_class_id, dataset.class_names, title="GT", ax=ax3)
