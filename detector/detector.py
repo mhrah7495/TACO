@@ -72,6 +72,10 @@ DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
 def test_dataset(model, dataset, nr_images):
 
     for i in range(nr_images):
+        try:
+            os.mkdir('detections')
+        except:
+            pass
 
         image_id = dataset.image_ids[i] if nr_images == len(dataset.image_ids) else random.choice(dataset.image_ids)
 
@@ -98,7 +102,7 @@ def test_dataset(model, dataset, nr_images):
 
         # # Display ground truth
         visualize.display_instances(image, gt_bbox, gt_mask, gt_class_id, dataset.class_names, title="GT", ax=ax3)
-
+        plt.savefig('detections/{}.jpg'.format(i))  
         # Voilà
         plt.show()
 
