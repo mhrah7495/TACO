@@ -2162,20 +2162,20 @@ class MaskRCNN():
                     log_dir: The directory where events and weights are saved
                     checkpoint_path: the path to the last checkpoint file
                 """
-        dir_names = next(os.walk(self.model_dir))[1]
+        #dir_names = next(os.walk(self.model_dir))[1]
 
-        assert model_name in dir_names
+        #assert model_name in dir_names
 
         model_path = os.path.join(self.model_dir, model_name)
-        checkpoints = next(os.walk(model_path))[2]
-        checkpoints = filter(lambda f: f.startswith("mask_rcnn_taco"), checkpoints)
-        checkpoints = sorted(checkpoints)
+        #checkpoints = next(os.walk(model_path))[2]
+        #checkpoints = filter(lambda f: f.startswith("mask_rcnn_taco"), checkpoints)
+        #checkpoints = sorted(checkpoints)
 
-        if not checkpoints:
-            return model_path, None
-        checkpoint = os.path.join(model_path, checkpoints[-1])
+        #if not checkpoints:
+        return None, model_path
+        #checkpoint = os.path.join(model_path, checkpoints[-1])
 
-        return model_path, checkpoint
+        #return model_path, checkpoint
 
     def find_last(self):
         """Finds the last checkpoint file of the last trained model in the
